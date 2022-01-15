@@ -12,13 +12,11 @@ python3 headless_phantasm.py test/cgc/rematch-crackaddr main test/cgc/queue{,-co
 
 import sys
 import argparse
-from pathlib import Path
+import time
+from binaryninja import BinaryViewType
 
-parent_dir = Path('.').absolute().parent
-sys.path.insert(0, parent_dir.as_posix())
 
-from phantasm.phantasm.plugin import graph_coverage
-from bncov import get_bv
+from phantasm.plugin import graph_coverage
 
 
 if __name__ == "__main__":
@@ -35,7 +33,11 @@ if __name__ == "__main__":
                         help='Don\'t show addresses in graph (default: shown)')
     args = parser.parse_args()
 
-    bv = get_bv(args.target, quiet=False)
+    sys.stdout.write("[B] Loading Binary Ninja view of \"%s\"... " % args.target)
+    sys.stdout.flush()
+    start = time.time()
+    bv = BinaryViewType.get_view_of_file(args.target)
+    print("finished in %.02f seconds" % (time.time() - start))
 
     print(f'[*] Invoking graph_coverage on {args.function}')
     output_file = graph_coverage(
