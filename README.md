@@ -34,3 +34,7 @@ Just clone this repo to your plugins directory.
 - Coverage Directory: directory containing files in drcov or module+offset
   format.
 - Output File: where to save the HTML output
+
+For those that want to see results before trying it, the repository includes
+an [example output](/test/example-output.html) that should display even on
+systems without Binary Ninja installed.
