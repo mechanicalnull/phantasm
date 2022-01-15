@@ -2,9 +2,11 @@
 
 Phantasm builds an interactive visualization of how fuzzing increases coverage
 of a function over time. Using coverage abstraction from the plugin
-[bncov](https://github.com/ForAllSecure/bncov), Phantasm adds the aspect of time
-and writes a single-page HTML visualization that users can use to see how the
-addition of each seed over time changes the coverage of the function.
+[bncov](https://github.com/ForAllSecure/bncov), and building on Vector35's
+[export SVG example](https://github.com/Vector35/binaryninja-api/blob/dev/python/examples/export_svg.py),
+Phantasm adds the aspect of exploring time via a single-page HTML visualization
+that users can use to explore how the addition of each seed over time changes
+the coverage of the function.
 
 ![Phantasm Demo](/images/phantasm_demo.gif)
 
