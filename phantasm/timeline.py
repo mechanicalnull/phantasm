@@ -134,6 +134,23 @@ class CoverageTimeline:
                     source = coverage_file.metadata["source"]
                     print(f'    {source} added {blocks_added} blocks from "{filename}"')
 
+    def show_function_steps(self):
+        bv = self.bv
+        func_steps = {}
+        for timestamp in self.sorted_timestamps:
+            for coverage_file in self.coverage_timeline[timestamp]:
+                blocks_added = coverage_file.block_coverage
+                funcs_seen = set()
+                for block in blocks_added:
+                    funcs = bv.get_functions_containing(block)
+                    for f in funcs:
+                        name = f.name
+                        if name not in funcs_seen:
+                            funcs_seen.add(name)
+                            func_steps[name] = func_steps.get(name, 0) + 1
+        for name, steps in sorted(func_steps.items(), key=lambda kv: kv[1], reverse=True):
+            print(name, steps)
+
     def get_coverage_at_timestamp(self, timestamp: int):
         """Return blocks covered up to and including the time of the timestamp arg."""
         coverage_so_far = set()
@@ -174,14 +191,13 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    bv = get_bv(args.target, quiet=False)
+    bv = make_bv(args.target, quiet=False)
     covdbs = [
-        get_covdb(bv, cur_dir, quiet=False) for cur_dir in args.coverage_dirs
+        make_covdb(bv, cur_dir) for cur_dir in args.coverage_dirs
     ]
 
     timeline = CoverageTimeline(bv, covdbs)
     print("[*] Processing timeline...", end="")
-    start = time.time()
     timeline.process_timeline()
-    print(f" completed in {start - time.time()} seconds.")
     timeline.print_coverage_over_time()
+    #timeline.show_function_steps()
