@@ -36,5 +36,6 @@ Just clone this repo to your plugins directory.
 - Output File: where to save the HTML output
 
 For those that want to see results before trying it, the repository includes
-an [example output](/test/example-output.html) that should display even on
-systems without Binary Ninja installed.
+[several](/test/phantasm-libjpegturbo-examine_app0.html)
+[examples](/test/phantasm-rematch_crackaddr-main.html)
+that should display even on systems without Binary Ninja installed.
