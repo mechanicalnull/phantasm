@@ -1,0 +1,238 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+body {
+  background-color: rgb(42, 42, 42);
+  color: rgb(220, 220, 220);
+  font-family: "Source Code Pro", "Lucida Console", "Consolas", monospace;
+}
+a, a:visited  {
+  color: rgb(200, 200, 200);
+  font-weight: bold;
+}
+svg {
+  background-color: rgb(42, 42, 42);
+  display: block;
+  margin: 0 auto;
+  width: inherit;
+  height: 100%;
+}
+.basicblock {
+  stroke: rgb(224, 224, 224);
+}
+.edge {
+  fill: none;
+  stroke-width: 1px;
+}
+.back_edge {
+  fill: none;
+  stroke-width: 2px;
+}
+.UnconditionalBranch, .IndirectBranch {
+  stroke: rgb(128, 198, 233);
+  color: rgb(128, 198, 233);
+}
+.FalseBranch {
+  stroke: rgb(222, 143, 151);
+  color: rgb(222, 143, 151);
+}
+.TrueBranch {
+  stroke: rgb(162, 217, 175);
+  color: rgb(162, 217, 175);
+}
+.arrow {
+  stroke-width: 1;
+  fill: currentColor;
+}
+text {
+  font-family: "Source Code Pro", "Lucida Console", "Consolas", monospace;
+  font-size: 9pt;
+  fill: rgb(224, 224, 224);
+}
+.CodeSymbolToken {
+  fill: rgb(128, 198, 223);
+}
+.DataSymbolToken {
+  fill: rgb(142, 230, 237);
+}
+.TextToken, .InstructionToken, .BeginMemoryOperandToken, .EndMemoryOperandToken {
+  fill: rgb(224, 224, 224);
+}
+.CodeRelativeAddressToken, .PossibleAddressToken, .IntegerToken, .AddressDisplayToken {
+  fill: rgb(162, 217, 175);
+}
+.RegisterToken {
+  fill: rgb(237, 223, 179);
+}
+.AnnotationToken {
+  fill: rgb(218, 196, 209);
+}
+.IndirectImportToken, .ImportToken {
+  fill: rgb(237, 189, 129);
+}
+.LocalVariableToken, .StackVariableToken {
+  fill: rgb(193, 220, 199);
+}
+.OpcodeToken {
+  fill: rgb(144, 144, 144);
+}
+.basicblock {
+  fill: #4a4a4a;
+}
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgb(32, 32, 32);
+  border-bottom: 1px solid rgb(224, 224, 224);
+  white-space: nowrap;
+}
+#slider {
+    vertical-align: middle;
+}
+#content {
+  position: absolute;
+  top: 44px;
+  bottom: 52px;
+  width: 100%;
+}
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgb(32, 32, 32);
+  border-top: 1px solid rgb(224, 224, 224);
+  white-space: nowrap;
+  text-align: center;
+}
+html, body {
+  margin:0px;
+}
+
+/* button css from https://codepen.io/ben_jammin/pen/syaCq */
+.button::-moz-focus-inner{
+  border: 0;
+  padding: 0;
+}
+
+.button{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 6px 20px;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  overflow: visible;
+  font: bold 13px arial, helvetica, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #555;
+
+  background-color: #ddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: -o-linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0));
+
+  -webkit-transition: background-color .2s ease-out;
+  -moz-transition: background-color .2s ease-out;
+  -ms-transition: background-color .2s ease-out;
+  -o-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+  text-shadow: 0 1px 0 rgba(255,255,255, .9);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button:hover{
+  background-color: #eee;
+  color: #555;
+}
+
+.button:active{
+  background: #e9e9e9;
+  position: relative;
+  top: 1px;
+  text-shadow: none;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+}
+
+/* Group buttons */
+.button-group,
+.button-group li{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.button-group{
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  padding: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.button-group li{
+  margin-right: -1px;
+}
+
+.button-group .button{
+  font-size: 13px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.button-group .button:active{
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+}
+
+.button-group li:first-child .button{
+  -moz-border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+.button-group li:first-child .button:active{
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+}
+
+.button-group li:last-child .button{
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.button-group li:last-child .button:active{
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+}
