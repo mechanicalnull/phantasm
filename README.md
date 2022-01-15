@@ -8,6 +8,10 @@ addition of each seed over time changes the coverage of the function.
 
 ![Phantasm Demo](/images/phantasm_demo.gif)
 
+Users can pan and zoom around the graph in their browser, as well as either
+watch a loop or step through each seed as it is added. This is currently a proof
+of concept, please open an issue if you have more ideas.
+
 ## Install
 
 Just clone this repo to your plugins directory.
