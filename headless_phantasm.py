@@ -6,7 +6,8 @@ Demonstrating Headless use of Phantasm.
 Note that this requires a Binary Ninja license that supports headless operation.
 Otherwise just enjoy using the plugin via the GUI and builtin Python console.
 
-Example Usage:
+Example Usage (make sure you heed warnings about timestamps and save and restore
+timestamps via something like tar archives):
 python3 headless_phantasm.py test/cgc/rematch-crackaddr main test/cgc/queue{,-cov}
 '''
 
