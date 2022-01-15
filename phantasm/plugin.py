@@ -75,10 +75,7 @@ def make_visualization(bv, func):
     output_path = os.path.abspath(output_file)
     with open(output_file, 'w') as f:
         f.write(html_content)
-        log_info(f'Phantasm: Wrote visualization to "{output_path}" ({len(html_content)} bytes)')
-
-    plaintext = f'Open visualization file at "{output_path}" in a browser'
-    show_html_report(f"Phantasm: {func.symbol.short_name}", html_content, plaintext=plaintext)
+        log_info(f'Phantasm: Wrote visualization to "{output_path}"')
 
     return output_path
 
